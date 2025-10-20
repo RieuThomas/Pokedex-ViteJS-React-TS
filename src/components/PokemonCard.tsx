@@ -12,7 +12,10 @@ function PokemonCard({ pokemon }: props) {
       <figcaption>{pokemon.name}</figcaption>
     </figure>
   ) : (
-    <p>???</p>
+    <figure>
+      <p>???</p>
+      <figcaption>{pokemon.name}</figcaption>
+    </figure>
   );
 }
 
