@@ -1,26 +1,24 @@
-interface Pokemon {
-  name: string;
-  imgSrc?: string;
+function handleClick(pokemon) {
+  return pokemon.name === "pikachu" && alert("pika pika");
 }
 
-interface NavBarProps {
-  setPokemonName: (name: string) => void;
-  pokemonList: Pokemon[];
-}
-
-
-function NavBar({setPokemonName, pokemonList}) {
-  return <nav>
-        {pokemonList.map((pokemon) => (
-          <button
-            type="button"
-            key={pokemon.name}
-            onClick={() => setPokemonName(pokemon.name)}
-          >
-            {pokemon.name}
-          </button>
-        ))}
-      </nav>;
+function NavBar({ setPokemonName, pokemonList }) {
+  return (
+    <nav>
+      {pokemonList.map((pokemon) => (
+        <button
+          type="button"
+          key={pokemon.name}
+          onClick={() => {
+            setPokemonName(pokemon.name);
+            handleClick(pokemon);
+          }}
+        >
+          {pokemon.name}
+        </button>
+      ))}
+    </nav>
+  );
 }
 
 export default NavBar;
